@@ -12,17 +12,19 @@ import java.util.Scanner;
 //EmployeePayrollService Class to Perform Operations
 public class EmployeePayrollService {
     List<EmployeePayrollData> employeePayrollDataList;
+    //Parameterized Constructor of This Class.
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollDataList) {
         super();
         this.employeePayrollDataList = employeePayrollDataList;
     }
+    //Constructor of this Class
     public EmployeePayrollService(){
         super();
         this.employeePayrollDataList = new ArrayList<>();
     }
 
     /**
-     * Created an ArrayList To Store Data of Employee.
+     * Created a List To Store Data of Employee.
      * Created a ReadEmployee Data Function
      * - EmployeePayrollData object Created and Scanning id,name,salary.
      * - Adding those objects directly to ArrayList.
@@ -54,11 +56,12 @@ public class EmployeePayrollService {
             new EmployeePayrollFileIOService().writeData(employeePayrollDataList);
         }
     }
-
+    //Function to Print Data of Employees
     public void printEmployeeData(IOService ioService) {
         if(ioService.equals(IOService.FILE_IO))
             new EmployeePayrollFileIOService().printData();
     }
+    //Function to Count Entries.
     public long countEntries(IOService ioService){
         if(ioService.equals(IOService.FILE_IO))
             new EmployeePayrollFileIOService().countEntry();

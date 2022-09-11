@@ -13,15 +13,20 @@ public class EmployeePayrollData {
     private int id;
     private String name;
     private int salary;
-
+    //Constructor of this class
     public EmployeePayrollData() {
     }
-
+    //Parameterized Constructor of this class
     public EmployeePayrollData(int id, String name, int salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;
     }
+
+    /**
+     * Getters and Setters as The Elements are Private.
+     * @return - id,name,salary
+     */
     public int getId() {
         return id;
     }
