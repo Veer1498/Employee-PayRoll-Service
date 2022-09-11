@@ -23,12 +23,12 @@ public class EmployeePayrollFileIOService {
         }
     }
 
-//    public void printData() {
-//        try{
-//            Files.lines(new File(PAYROLL_FileName).toPath()).forEach(System.out::println);
-//        }
-//        catch(IOException e){
-//            e.printStackTrace();
-//        }
-//    }
+    public void printData() {
+        try{
+            Files.lines(new File(PAYROLL_FileName).toPath()).forEach(System.out::println);
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 }
