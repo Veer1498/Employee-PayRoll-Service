@@ -31,4 +31,15 @@ public class EmployeePayrollFileIOService {
             e.printStackTrace();
         }
     }
+
+    public long countEntry() {
+        long entries = 0;
+        try{
+            entries = Files.lines(new File(PAYROLL_FileName).toPath()).count();
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+        return entries;
+    }
 }
