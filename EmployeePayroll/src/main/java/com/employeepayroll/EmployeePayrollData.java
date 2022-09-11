@@ -17,6 +17,11 @@ public class EmployeePayrollData {
     public EmployeePayrollData() {
     }
 
+    public EmployeePayrollData(int id, String name, int salary) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
     public int getId() {
         return id;
     }

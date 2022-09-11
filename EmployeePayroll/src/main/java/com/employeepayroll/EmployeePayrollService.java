@@ -1,6 +1,7 @@
 package com.employeepayroll;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,6 +11,16 @@ import java.util.Scanner;
 
 //EmployeePayrollService Class to Perform Operations
 public class EmployeePayrollService {
+    List<EmployeePayrollData> employeePayrollDataList;
+    public EmployeePayrollService(List<EmployeePayrollData> employeePayrollDataList) {
+        super();
+        this.employeePayrollDataList = employeePayrollDataList;
+    }
+    public EmployeePayrollService(){
+        super();
+        this.employeePayrollDataList = new ArrayList<>();
+    }
+
     /**
      * Created an ArrayList To Store Data of Employee.
      * Created a ReadEmployee Data Function
@@ -18,7 +29,7 @@ public class EmployeePayrollService {
      * Created WriteEmployee Data Function
      * -Printing all The Data of ArrayList
      */
-    ArrayList<EmployeePayrollData> employeePayrollDataList = new ArrayList<>();
+    public enum IOService{CONSOLE_IO,FILE_IO}
 
     //Function to Read Employee Data
     public void readEmployeeData() {
@@ -36,7 +47,16 @@ public class EmployeePayrollService {
 
     }
     //Function to Write Employee Data
-    public void writeEmployeeData(){
-        System.out.println("Writing Employee Payroll Using Console \n"+employeePayrollDataList);
+    public void writeEmployeeData(IOService ioService){
+        if(ioService.equals(IOService.CONSOLE_IO)){
+            System.out.println("Writing Employee Payroll Using Console \n"+employeePayrollDataList);
+        } else if (ioService.equals(IOService.FILE_IO)) {
+            new EmployeePayrollFileIOService().writeData(employeePayrollDataList);
+        }
     }
+
+//    public void printEmployeeData(IOService ioService) {
+//        if(ioService.equals(IOService.FILE_IO))
+//            new EmployeePayrollFileIOService().printData();
+//    }
 }
